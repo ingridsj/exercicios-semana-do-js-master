@@ -7,7 +7,9 @@
 
 const randomNumbers = [10, 30, 15, 25, 50, 40, 5]
 
-const oddNumbers = randomNumbers.filter(randomNumber => randomNumber % 2 === 1)
+const getOddNumbers = randomNumber => randomNumber % 2 === 1
+
+const oddNumbers = randomNumbers.filter(getOddNumbers)
 
 console.log("Exercício número 01: " + oddNumbers)
 
@@ -56,7 +58,7 @@ const tarantinoMovies = [
   { name: 'Kill Bill: Volume 1', release: 2003 }
 ]
 
-const moviesReleasedBefore2000 = tarantinoMovies.filter(movie => movie.release < 2000)
+const moviesReleasedBefore2000 = tarantinoMovies.filter(({release}) => release < 2000)
 console.log("Exercício número 04: " + moviesReleasedBefore2000)
 
 /*
@@ -76,7 +78,7 @@ const tvShows = [
   { name: 'Watchmen', releaseYear: 2019 }
 ]
 
-const onlyNamesOfTvShows = tvShows.map(tvShow => tvShow.name)
+const onlyNamesOfTvShows = tvShows.map(({ name }) => name)
 
 console.log("Exercício número 05: " + onlyNamesOfTvShows)
 
@@ -99,9 +101,7 @@ const cart = [
   { name: 'Death Stranding', price: 149.99 }
 ]
 
-const productList =  cart.reduce((accumulator, product) => {
-  return `${accumulator}- ${product.name}\n`
-}, '')
+const productList =  cart.reduce((accumulator, { name }) => `${accumulator}- ${ name }\n`, '')
 
 console.log("Exercício número 06:\n" + productList)
 
